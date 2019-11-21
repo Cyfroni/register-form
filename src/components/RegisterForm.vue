@@ -1,75 +1,70 @@
 <template>
-  <form>
-    <h1>WELCOME TO WEDIO -</h1>
-    <p>the fastest-growing European community of creators</p>
-    <div class="form-group">
-      <label for="EmailInput">Email</label>
-      <input
-        v-model="input.email"
-        type="email"
-        class="form-control"
-        id="EmailInput"
-        placeholder="Enter email"
-      />
-    </div>
-    <div class="form-group">
-      <label for="UsernameInput">Username</label>
-      <input
-        v-model="input.username"
-        type="email"
-        class="form-control"
-        id="UsernameInput"
-        placeholder="Enter username"
-      />
-    </div>
-    <div class="form-group">
-      <label for="InputPassword">Password</label>
-      <input
-        v-model="input.password"
-        type="password"
-        class="form-control"
-        id="InputPassword"
-        placeholder="Enter password"
-      />
-    </div>
-    <p id="emailHelp" class="form-text text-muted">
-      By clicking on Register, you agree to Wedio's Terms & Conditions and
-      Privacy Policy..
+  <div class="registerForm">
+    <Form
+      inputId="EmailInput"
+      name="Email"
+      type="email"
+      placeholder="Enter email"
+    />
+    <Form
+      inputId="UsernameInput"
+      name="Username"
+      type="email"
+      placeholder="Enter username"
+    />
+    <Form
+      inputId="PasswordInput"
+      name="Password"
+      type="password"
+      placeholder="Enter password"
+    />
+    <p id="termsAndConditions" class="wedio-white">
+      <span>
+        By clicking on Register, you agree to Wedio's
+        <a
+          class="wedio-white"
+          href="http://support.wedio.com/en/articles/3491417-terms-and-conditions"
+          >Terms & Conditions</a
+        >
+        and
+        <a
+          class="wedio-white"
+          href="http://support.wedio.com/en/articles/3491350-privacy-policy-your-data-your-decision"
+          >Privacy Policy</a
+        >.
+      </span>
     </p>
-    <button type="button" class="btn btn-outline-light">SIGN IN</button>
-    <button type="button" class="btn btn-success" @click="register()">
-      REGISTER
-    </button>
-  </form>
+    <div>
+      <button type="button" class="btn btn-outline-light">SIGN IN</button>
+      <button type="button" class="btn btn-success" @click="doSubmit">
+        REGISTER
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
+import Form from './common/Form'
 export default {
   name: 'RegisterForm',
-  data() {
-    return { input: { email: '', username: '', password: '' } }
+  components: {
+    Form
   },
   methods: {
-    register() {
+    doSubmit() {
       console.log(this.input)
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .btn {
   margin: 10px 30px 10px 30px;
   border-radius: 30px;
   width: 150px;
 }
-
-form {
-  width: 450px;
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  transform: translate(-50%, -50%);
+a {
+  text-decoration: underline;
 }
 </style>

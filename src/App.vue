@@ -1,25 +1,28 @@
 <template>
-  <div id="app" style>
-    <RegisterForm />
+  <div id="app">
+    <Register />
   </div>
 </template>
 
 <script>
-import RegisterForm from './components/RegisterForm.vue'
+import Register from './views/Register'
 
 export default {
   name: 'app',
   components: {
-    RegisterForm
+    Register
   }
 }
 </script>
 
 <style>
 #app {
-  background-image: url('https://wedio-cdn.s3.eu-west-1.amazonaws.com/images/homepage/login/login_bg_x3.jpg');
+  background-image: url('./assets/background.jpg');
   background-position: right;
   background-size: cover;
   min-height: 100vh;
+}
+.wedio-white {
+  color: white;
 }
 </style>
